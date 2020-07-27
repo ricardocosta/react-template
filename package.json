@@ -24,7 +24,18 @@
   "devDependencies": {
     "@commitlint/cli": "^9.1.1",
     "@commitlint/config-conventional": "^9.1.1",
+    "@storybook/addon-a11y": "^5.3.19",
+    "@storybook/addon-actions": "^5.3.19",
+    "@storybook/addon-docs": "^5.3.19",
+    "@storybook/addon-knobs": "^5.3.19",
+    "@storybook/addon-links": "^5.3.19",
+    "@storybook/addon-storysource": "^5.3.19",
+    "@storybook/addon-viewport": "^5.3.19",
+    "@storybook/addons": "^5.3.19",
+    "@storybook/preset-create-react-app": "^3.1.4",
+    "@storybook/react": "^5.3.19",
     "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-mdx": "^1.7.1",
     "eslint-plugin-prettier": "^3.1.4",
     "husky": "^4.2.5",
     "lint-staged": "^10.2.11",
@@ -36,9 +47,11 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "yarn lint:format && yarn lint:eslint && yarn lint:tsc",
-    "lint:eslint": "eslint --ext .js,.ts,.tsx src/",
-    "lint:format": "prettier --write src/**/*.{ts,tsx}",
-    "lint:tsc": "tsc --noEmit"
+    "lint:eslint": "eslint --ext .js,.ts,.tsx,.mdx src/",
+    "lint:format": "prettier --write 'src/**/*.{ts,tsx,mdx}'",
+    "lint:tsc": "tsc --noEmit",
+    "storybook": "start-storybook -p 9009 -s public",
+    "storybook:build": "build-storybook -s public"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -58,8 +71,12 @@
   "lint-staged": {
     "src/**/*.{ts,tsx}": [
       "prettier --write",
-      "eslint --ext .js,.ts,.tsx",
-      "tsc"
+      "eslint --ext .js,.ts,.tsx,.mdx",
+      "tsc --noEmit --jsx preserve --allowSyntheticDefaultImports --downlevelIteration --resolveJsonModule"
+    ],
+    "src/**/*.{mdx}": [
+      "prettier --write",
+      "eslint --ext .js,.ts,.tsx,.mdx"
     ]
   },
   "husky": {

@@ -1,0 +1,13 @@
+import { Welcome } from "@storybook/react/demo";
+import { linkTo } from "@storybook/addon-links";
+import { Meta, Preview } from "@storybook/addon-docs/blocks";
+
+<Meta title="Welcome" />
+
+# Welcome
+
+`MDX` page with documentation that includes previews of other stories.
+
+<Preview>
+  <Welcome showApp={linkTo("Button")} />;
+</Preview>
