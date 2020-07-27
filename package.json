@@ -22,13 +22,20 @@
     "typescript": "~3.7.2"
   },
   "devDependencies": {
-    "husky": "^4.2.5"
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "husky": "^4.2.5",
+    "prettier": "^2.0.5"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lint": "yarn lint:format && yarn lint:eslint && yarn lint:tsc",
+    "lint:eslint": "eslint --ext .js,.ts,.tsx src/",
+    "lint:format": "prettier --write src/**/*.{ts,tsx}",
+    "lint:tsc": "tsc --noEmit"
   },
   "eslintConfig": {
     "extends": "react-app"
