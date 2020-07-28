@@ -10,6 +10,12 @@ UI shell for microfrontends of Bank.
     - [`yarn build`](#yarn-build)
     - [`yarn storybook`](#yarn-storybook)
     - [`yarn storybook:build`](#yarn-storybookbuild)
+  - [docker-compose services](#docker-compose-services)
+    - [`lint`](#lint)
+    - [`tests`](#tests)
+    - [`dev`](#dev)
+    - [`production`](#production)
+    - [`storybook`](#storybook)
 
 ## Development
 
@@ -45,7 +51,7 @@ Run `yarn lint:dry` to perform the linting tasks without changing the code. It r
 
 #### `yarn build`
 
-Builds the app for production to the `build` folder. It correctly bundles React in production mode and optimizes the build for the best performance.
+Builds the app for production to the `build` folder. It correctly bundles React in production mode and optimizes the build for the best performance. Open [http://localhost:5000](http://localhost:5000) to view it.
 
 The build is minified and the filenames include the hashes. Your app is ready to be deployed! See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
@@ -56,3 +62,35 @@ Runs Storybook to showcase the application's code and components. Open [http://l
 #### `yarn storybook:build`
 
 Builds Storybook in order to be deployable in a server.
+
+### docker-compose services
+
+#### `lint`
+
+Runs linting tasks without modifying the code (`yarn lint:dry`).
+
+`$ docker-compose run --rm lint`
+
+#### `tests`
+
+Runs tests in CI mode (`yarn test:ci`).
+
+`$ docker-compose run --rm tests`
+
+#### `dev`
+
+Runs the application with development build (`yarn start`). Available at [http://localhost:3000](http://localhost:3000).
+
+`$ docker-compose up dev`
+
+#### `production`
+
+Runs the application with production build (`yarn build && serve -s build`). Available at [http://localhost:5000](http://localhost:5000).
+
+`$ docker-compose up production`
+
+#### `storybook`
+
+Runs the application's Storybook (`yarn storybook`). Available at [http://localhost:9009](http://localhost:9009).
+
+`$ docker-compose up storybook`
