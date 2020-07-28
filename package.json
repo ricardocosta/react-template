@@ -45,10 +45,13 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "test:ci": "CI=true yarn test",
     "eject": "react-scripts eject",
     "lint": "yarn lint:format && yarn lint:eslint && yarn lint:tsc",
+    "lint:dry": "yarn lint:format:dry && yarn lint:eslint && yarn lint:tsc",
     "lint:eslint": "eslint --ext .js,.ts,.tsx,.mdx src/",
     "lint:format": "prettier --write 'src/**/*.{ts,tsx,mdx}'",
+    "lint:format:dry": "prettier --check 'src/**/*.{ts,tsx,mdx}'",
     "lint:tsc": "tsc --noEmit",
     "storybook": "start-storybook -p 9009 -s public",
     "storybook:build": "build-storybook -s public"
