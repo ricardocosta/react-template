@@ -1,0 +1,33 @@
+version: "3"
+
+services:
+  common: &BASE
+    build: .
+    stdin_open: true
+    image: bank/bank-vault
+
+  lint:
+    <<: *BASE
+    command: yarn lint:dry
+
+  tests:
+    <<: *BASE
+    command: yarn test:ci
+
+  dev:
+    <<: *BASE
+    ports:
+      - "3000:3000"
+    command: yarn start
+
+  production:
+    <<: *BASE
+    ports:
+      - "5000:5000"
+    command: bash -c 'yarn build && serve -s build'
+
+  storybook:
+    <<: *BASE
+    ports:
+      - "9009:9009"
+    command: yarn storybook
