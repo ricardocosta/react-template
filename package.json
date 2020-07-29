@@ -39,7 +39,8 @@
     "eslint-plugin-prettier": "^3.1.4",
     "husky": "^4.2.5",
     "lint-staged": "^10.2.11",
-    "prettier": "^2.0.5"
+    "prettier": "^2.0.5",
+    "standard-version": "^8.0.2"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -54,7 +55,8 @@
     "lint:format:dry": "prettier --check 'src/**/*.{ts,tsx,mdx}'",
     "lint:tsc": "tsc --noEmit",
     "storybook": "start-storybook -p 9009 -s public",
-    "storybook:build": "build-storybook -s public"
+    "storybook:build": "build-storybook -s public",
+    "release": "standard-version --no-verify"
   },
   "eslintConfig": {
     "extends": "react-app"
