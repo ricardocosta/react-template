@@ -10,6 +10,7 @@ UI shell for microfrontends of Bank.
     - [`yarn build`](#yarn-build)
     - [`yarn storybook`](#yarn-storybook)
     - [`yarn storybook:build`](#yarn-storybookbuild)
+    - [`yarn release`](#yarn-release)
   - [docker-compose services](#docker-compose-services)
     - [`lint`](#lint)
     - [`tests`](#tests)
@@ -62,6 +63,16 @@ Runs Storybook to showcase the application's code and components. Open [http://l
 #### `yarn storybook:build`
 
 Builds Storybook in order to be deployable in a server.
+
+#### `yarn release`
+
+Generates a new release by using [standard-version](https://github.com/conventional-changelog/standard-version). It will:
+
+1. Retrieve the current version.
+2. Bump the version based on the commits.
+3. Generate a changelog based on the commits.
+4. Create a new commit including the updated version and CHANGELOG.
+5. Create a new tag with the new version number.
 
 ### docker-compose services
 
