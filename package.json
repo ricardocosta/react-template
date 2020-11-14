@@ -50,6 +50,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "test:ci": "CI=true yarn test",
+    "test:coverage": "CI=true react-scripts test --coverage",
     "eject": "react-scripts eject",
     "lint": "yarn lint:format && yarn lint:eslint && yarn lint:tsc",
     "lint:dry": "yarn lint:format:dry && yarn lint:eslint && yarn lint:tsc",
@@ -92,6 +93,26 @@
       "pre-commit": "lint-staged",
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
       "pre-push": "CI=true yarn test"
+    }
+  },
+  "jest": {
+    "coveragePathIgnorePatterns": [
+      "/node_modules/",
+      "src/stories",
+      "/src/reportWebVitals.ts",
+      "/src/index.tsx"
+    ],
+    "coverageReporters": [
+      "text",
+      "html"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 95,
+        "functions": 95,
+        "lines": 95,
+        "statements": -5
+      }
     }
   }
 }

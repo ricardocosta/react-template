@@ -39,6 +39,8 @@ The project uses [Jest](https://jestjs.io/) to run the tests, and it's already c
 
 The tests can be run with `yarn test` for interactive mode, or `yarn test:ci` for CI mode, where all the tests are run without user input.
 
+You can also run `yarn test:coverage`, which will run the tests and generate a coverage report on the console and in HTML format (`coverage` directory).
+
 ## 🚧 Committing
 
 This project uses the [Conventional Commits](https://www.conventionalcommits.org/) specification. This means that commit messages must adhere to the specification, so that they stay consistent and can be used to automatically generate change logs when releasing new versions.
